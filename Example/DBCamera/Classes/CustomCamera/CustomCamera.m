@@ -15,6 +15,8 @@
 
 @implementation CustomCamera
 
+@synthesize closeButton;
+
 - (void) buildInterface
 {
     [self addSubview:self.closeButton];
@@ -25,17 +27,18 @@
     [self createGesture];
 }
 
-- (UIButton *) closeButton
+- (UIButton *)closeButton
 {
-    if ( !_closeButton ) {
-        _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setBackgroundColor:[UIColor redColor]];
-        [_closeButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
-        [_closeButton setFrame:(CGRect){ CGRectGetMidX(self.bounds) - 15, 17.5f, 30, 30 }];
-        [_closeButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
+    if ( !closeButton ) {
+        closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [closeButton setBackgroundColor:[UIColor redColor]];
+        [closeButton setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+        [closeButton setFrame:(CGRect){ CGRectGetMidX(self.bounds) - 15, 17.5f, 30, 30 }];
+        [closeButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    return _closeButton;
+    return closeButton;
+    //have change _closeButton to closeButton
 }
 
 - (void) close
